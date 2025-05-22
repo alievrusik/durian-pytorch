@@ -28,6 +28,31 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+## External Dependencies
+
+### GitHub Repositories
+
+This project depends on two external repositories that are automatically installed via pip:
+
+1. [Listener](https://github.com/shrubb/listener.git) - Used for audio processing
+2. [WaveGlow](https://github.com/shrubb/waveglow.git) - Used for neural vocoding
+
+Note: These repositories are forked versions of the original implementations. If you encounter any issues with these repositories, you may need to:
+- Check for compatibility with your PyTorch version
+- Ensure you have the correct CUDA version installed
+- Consider using the original repositories if the forked versions don't work
+
+### WaveGlow Model
+
+The project requires a pre-trained WaveGlow model for inference. You can download it from NVIDIA's NGC:
+
+```bash
+# Download the WaveGlow model
+wget https://api.ngc.nvidia.com/v2/models/nvidia/waveglow_ljs_256channels/versions/2/files/waveglow_256channels_ljs_v2.pt
+```
+
+Place the downloaded model file in the appropriate directory as specified in your configuration.
+
 ## Usage
 
 ### Training
