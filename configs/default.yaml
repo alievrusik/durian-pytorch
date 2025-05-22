@@ -1,0 +1,45 @@
+# Model Configuration
+model:
+  name: "durian"
+  hidden_dim: 512
+  num_layers: 6
+  num_heads: 8
+  dropout: 0.1
+  use_duration: true
+  use_attention: true
+
+# Training Configuration
+training:
+  batch_size: 32
+  learning_rate: 0.0001
+  max_epochs: 1000
+  warmup_steps: 4000
+  gradient_clip_val: 1.0
+  early_stopping_patience: 10
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs"
+
+# Data Configuration
+data:
+  train_path: "data/train"
+  val_path: "data/val"
+  test_path: "data/test"
+  sample_rate: 22050
+  max_wav_length: 8192
+  text_cleaner: "english_cleaners"
+
+# Audio Configuration
+audio:
+  n_mel_channels: 80
+  n_fft: 1024
+  hop_length: 256
+  win_length: 1024
+  mel_fmin: 0
+  mel_fmax: 8000
+
+# Logging Configuration
+logging:
+  log_every_n_steps: 100
+  save_every_n_epochs: 1
+  tensorboard: true
+  wandb: false  # Set to true to enable Weights & Biases logging 
